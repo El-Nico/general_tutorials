@@ -1,7 +1,8 @@
 import { create } from "zustand";
+import { textRes } from "../fetch_calls/03_url_requests";
 
 export const useStore = create((set) => ({
-  json: "usuh niggi",
+  json: '{"default":"suh niggi"}',
   desc: "description of this fetch call",
   code: `function getData() {
     fetch(url)
@@ -16,6 +17,8 @@ export const useStore = create((set) => ({
         console.warn(err.message);
       });
   }`,
+  textRes: "",
+  updateTextRes: (newTextRes) => set({ textRes: newTextRes }),
   updateJson: (newJson) => set({ json: newJson }),
   updateDesc: (newDesc) => set({ desc: newDesc }),
   updateCode: (newCode) => set({ code: newCode }),

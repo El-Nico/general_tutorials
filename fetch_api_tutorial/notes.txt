@@ -1,0 +1,6 @@
+types
+string
+json
+image
+
+use iframes srced from the public directory for displays

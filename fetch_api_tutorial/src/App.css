@@ -13,12 +13,19 @@
 .body-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  max-height: 50vh;
+  text-align: justify;
 }
 
 .body-container > * {
   border: 1px grey solid;
+  overflow-y: scroll;
+}
+
+.code-box > * {
+  display: grid;
 }
 
 div {
-  border: 1px red solid;
+  /* border: 1px red solid; */
 }

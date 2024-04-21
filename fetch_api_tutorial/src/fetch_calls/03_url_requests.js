@@ -1,9 +1,3 @@
-import React from "react";
-
-function UrlRequests() {
-  getData();
-  return <div>title=03_url_requests</div>;
-}
 // URL and Request Objects
 /*
  url: href, host, hostname, port, protocol, origin, pathname, hash, search, searchParams
@@ -21,9 +15,18 @@ Headers
 
 const str = `${window.location.href}local-sample.json?attempt=123&other=hello`;
 
+export const desc =
+  "the simplest fetch you can use and still have error3 handling";
+export const textRes = {};
 export function getData() {
   //
   const url = new URL(str);
+  textRes.host = url.host;
+  textRes.origin = url.origin;
+  textRes.protocol = url.protocol;
+  textRes.port = url.port;
+  textRes.pathname = url.pathname;
+  console.log(url);
   console.log(url.host, url.origin, url.protocol, url.port, url.pathname);
   const request = new Request(url, {
     headers: { "x-steve": "hello" },
@@ -33,13 +36,8 @@ export function getData() {
 
   fetch(request)
     .then((response) => {
-      // console.log(response.status);
       if (!response.ok) throw new Error("Invalid");
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
-    })
     .catch((err) => console.warn(err.message));
 }
-export default UrlRequests;
